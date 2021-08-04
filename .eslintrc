@@ -1,3 +1,22 @@
 {
-  "extends": ["next", "next/core-web-vitals"]
+  "extends": ["next",
+    "next/core-web-vitals",
+    "plugin:prettier/recommended",
+    "prettier"],
+    "rules": {
+      "@typescript-eslint/no-var-requires": 0,
+      "prettier/prettier": [
+          "error",
+          {
+              "singleQuote": true,
+              "semi": true,
+              "useTabs": false,
+              "tabWidth": 4,
+              "printWidth": 160,
+              "bracketSpacing": false,
+              "arrowParens": "avoid",
+              "endOfLine": "auto",
+          },
+      ],
+  },
 }

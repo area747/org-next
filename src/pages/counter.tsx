@@ -1,12 +1,6 @@
-import {Component} from 'react';
-import {useSelector} from 'react-redux';
+import React from 'react';
+import CounterContainer from '../container/CounterContainer';
 
-class Counter extends Component {
-    render() {
-        return (
-            <div>
-                <button>+</button>
-            </div>
-        );
-    }
+export default function counter() {
+    return <CounterContainer />;
 }

@@ -2,7 +2,7 @@ import withRedux, {Context, createWrapper, MakeStore} from 'next-redux-wrapper';
 import {Provider} from 'react-redux';
 import {createStore, compose, applyMiddleware, Middleware, Store} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
-import rootReducer from '../module';
+import rootReducer from '../reducer';
 
 console.log(process.env.NODE_ENV);
 

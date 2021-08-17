@@ -1,0 +1,9 @@
+### ASSETS ###
+/node_modules/**
+public/lib
+public/lib/**
+
+### EXCLUDES ###
+# !**/es5/**/*.js
+# !*.es5.js
+!/src/main/webapp/js/**/*.js

@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import Inorg from '../component/module/inorg';
+import Inorg from '../component/module/OrgView';
 
 export default class OrgView extends Component {
     render() {

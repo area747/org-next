@@ -1,6 +1,6 @@
 import React from 'react';
-import CounterContainer from '../container/CounterContainer';
+import Counter from '../component/Counter';
 
 export default function counter() {
-    return <CounterContainer />;
+    return <Counter />;
 }

@@ -30,7 +30,6 @@ export default class OrgView extends Component {
                         </button>
                     </div>
                 </div>
-                {/* <div id="org-view" style={{width: '100%', height: '100%'}}></div> */}
                 <Inorg></Inorg>
                 <div id="export-org-view" style={{width: '10px', height: '10px', display: 'none'}}></div>
             </div>

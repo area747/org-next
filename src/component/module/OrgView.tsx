@@ -4,7 +4,7 @@ import Inorg from '../Inorg';
 export default class OrgView extends Component {
     render() {
         return (
-            <div id="org-view-area" className="ui-layout-center article-right-panel">
+            <div id="org-view-area" className="ui-layout-center flex-container">
                 <div id="org-toolbar-area3" className="org-toolbar-area3">
                     <div className="form-inline">
                         <div id="indicator-level" style={{width: '30px', margin: '0 3px 0 0'}}>

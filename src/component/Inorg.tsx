@@ -1,3 +1,4 @@
+import {OrgNode, OrgObject} from 'orgObject';
 import React from 'react';
 import useScript from './scriptLoader';
 
@@ -17,11 +18,12 @@ import useScript from './scriptLoader';
 // // Promise Interface can ensure load the script only once.
 // const my_script = new_script('http://example.com/aaa.js');
 
-const orgData = {
+const orgData: OrgObject = {
     model: {
         pkey: 'pkey',
         rkey: 'rkey',
         order: ['orgSortOrder', 'empSortOrder'],
+        fields: [],
     },
     template: {
         nodes: {
@@ -1459,10 +1461,39 @@ const orgData = {
     ],
 };
 
+let nodeType1: OrgNode = {
+    style: {},
+    units: [],
+};
+
+let oData: OrgObject = {
+    model: {
+        pkey: '',
+        rkey: '',
+        mkey: undefined,
+        order: undefined,
+        fields: [],
+    },
+    template: {
+        nodes: {
+            test1: nodeType1,
+            test2: nodeType1,
+        },
+        links: undefined,
+    },
+    orgData: {
+        nodes: {},
+        links: undefined,
+    },
+};
+
 const createOrg = () => {
-    const viewOrg = createINOrg('viewOrg', {});
+    viewOrg = createINOrg('viewOrg', {});
     viewOrg.loadJson({data: orgData});
 };
+
+export let viewOrg: any;
+
 export default function Inorg() {
     useScript('/lib/softin.js', 'softin');
     useScript('/lib/inorginfo.js', 'inorginfo');

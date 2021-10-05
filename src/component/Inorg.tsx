@@ -1,5 +1,8 @@
 import {OrgNode, OrgObject} from 'orgObject';
 import React from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {RootState} from '../reducer';
+import {setOrgObject} from '../reducer/orgObject';
 import useScript from './scriptLoader';
 
 // function new_script(src: string) {
@@ -1466,40 +1469,34 @@ let nodeType1: OrgNode = {
     units: [],
 };
 
-let oData: OrgObject = {
-    model: {
-        pkey: '',
-        rkey: '',
-        mkey: undefined,
-        order: undefined,
-        fields: [],
-    },
-    template: {
-        nodes: {
-            test1: nodeType1,
-            test2: nodeType1,
-        },
-        links: undefined,
-    },
-    orgData: {
-        nodes: {},
-        links: undefined,
-    },
-};
-
-const createOrg = () => {
-    viewOrg = createINOrg('viewOrg', {});
-    viewOrg.loadJson({data: orgData});
-};
-
 export let viewOrg: any;
 
 export default function Inorg() {
+    const org = useSelector((state: RootState) => state.orgObject);
+    const dispatch = useDispatch();
+    const loadData = (diff: OrgObject) => dispatch(setOrgObject(diff));
+    const createOrg = () => {
+        viewOrg = createINOrg('viewOrg', {});
+    };
+
     useScript('/lib/softin.js', 'softin');
     useScript('/lib/inorginfo.js', 'inorginfo');
     useScript('/lib/inorg.js', 'inorg', createOrg);
 
-    return <div id="viewOrg" style={{width: '100%', height: '100%'}}></div>;
+    return (
+        <div>
+            <button
+                onClick={() => {
+                    loadData(orgData);
+                    console.log(org);
+                    viewOrg.loadJson({data: org});
+                }}
+            >
+                load
+            </button>
+            <div id="viewOrg" style={{width: '100%', height: '500px'}}></div>
+        </div>
+    );
 }
 
 declare function createINOrg(id: string, option: Object): any;

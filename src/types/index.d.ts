@@ -30,7 +30,7 @@ declare module 'orgObject' {
         type?: string;
         isLabel?: boolean;
         style: {};
-        units: [];
+        units: Array<any>;
     };
 
     export {OrgObject, OrgNode};

@@ -1,8 +1,10 @@
-import {OrgNode, OrgObject} from 'orgObject';
-import React from 'react';
+import {OrgObject} from 'orgObject';
+import {INOrg, Node} from 'inorg';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../reducer';
 import {setOrgObject} from '../reducer/orgObject';
+import {inorgAction} from '../reducer/inorg';
 import useScript from './scriptLoader';
 
 // function new_script(src: string) {
@@ -20,7 +22,6 @@ import useScript from './scriptLoader';
 // }
 // // Promise Interface can ensure load the script only once.
 // const my_script = new_script('http://example.com/aaa.js');
-
 const orgData: OrgObject = {
     model: {
         pkey: 'pkey',
@@ -1463,21 +1464,24 @@ const orgData: OrgObject = {
         },
     ],
 };
-
-let nodeType1: OrgNode = {
-    style: {},
-    units: [],
-};
-
-export let viewOrg: any;
-
 export default function Inorg() {
     const org = useSelector((state: RootState) => state.orgObject);
+    const viewOrg: INOrg;
+    const inorg = useSelector((state: RootState) => state.inorg);
     const dispatch = useDispatch();
-    const loadData = (diff: OrgObject) => dispatch(setOrgObject(diff));
     const createOrg = () => {
         viewOrg = createINOrg('viewOrg', {});
     };
+
+    useEffect(() => {
+        console.log('mounted');
+        if (viewOrg) {
+            viewOrg.loadJson({data: org});
+        }
+        return () => {
+            console.log('unmounted');
+        };
+    }, [org]);
 
     useScript('/lib/softin.js', 'softin');
     useScript('/lib/inorginfo.js', 'inorginfo');
@@ -1487,9 +1491,7 @@ export default function Inorg() {
         <div>
             <button
                 onClick={() => {
-                    loadData(orgData);
-                    console.log(org);
-                    viewOrg.loadJson({data: org});
+                    dispatch(setOrgObject(orgData));
                 }}
             >
                 load
@@ -1498,5 +1500,3 @@ export default function Inorg() {
         </div>
     );
 }
-
-declare function createINOrg(id: string, option: Object): any;

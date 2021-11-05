@@ -1,4 +1,5 @@
 import {OrgObject} from 'orgObject';
+import {Dispatch} from 'redux';
 
 export const setOrgObject = (diff: OrgObject) => ({
     type: 'SET_ORG_OBJECT' as const,

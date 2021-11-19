@@ -1,6 +1,6 @@
 import {OrgObject} from 'orgObject';
 import {INOrg, Node} from 'inorg';
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../reducer';
 import {setOrgObject} from '../reducer/orgObject';
@@ -1465,27 +1465,26 @@ const orgData: OrgObject = {
     ],
 };
 export default function Inorg() {
-    const org = useSelector((state: RootState) => state.orgObject);
-    const viewOrg: INOrg;
-    const inorg = useSelector((state: RootState) => state.inorg);
+    let org = useSelector((state: RootState) => state.orgObject);
+    let inorg = useRef(null);
     const dispatch = useDispatch();
-    const createOrg = () => {
-        viewOrg = createINOrg('viewOrg', {});
-    };
-
-    useEffect(() => {
-        console.log('mounted');
-        if (viewOrg) {
-            viewOrg.loadJson({data: org});
-        }
-        return () => {
-            console.log('unmounted');
-        };
-    }, [org]);
 
     useScript('/lib/softin.js', 'softin');
     useScript('/lib/inorginfo.js', 'inorginfo');
-    useScript('/lib/inorg.js', 'inorg', createOrg);
+    useScript('/lib/inorg.js', 'inorg', () => {
+        inorg.current = createINOrg('viewOrg', {});
+    });
+
+    useEffect(() => {
+        console.log(inorg);
+        if (inorg) {
+            inorg.current;
+        }
+
+        return () => {
+            console.log('return');
+        };
+    }, [org]);
 
     return (
         <div>
@@ -1496,6 +1495,8 @@ export default function Inorg() {
             >
                 load
             </button>
+            <button onClick={() => {}}>load</button>
+
             <div id="viewOrg" style={{width: '100%', height: '500px'}}></div>
         </div>
     );

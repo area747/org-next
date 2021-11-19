@@ -40,45 +40,138 @@ declare module 'inorg' {
     import {OrgObject} from 'orgObject';
 
     type INOrg = {
-        nodes: (pkey: string) => Node;
-        loadJson: (opt: {
+        /**
+         * org object의 드래그 선택 표현 허용 여부 설정 또는 확인
+         */
+        allowDragSelect(value: boolean): INOrg;
+        allowDragSelect(): boolean;
+        /**
+         * node 선택시 부모 노드와 연결된 링크가 임의의 노드 뒤에 가려져 있을 경우
+         * 노드 위로 표현되게 할지 여부
+         */
+        allowFloatLink(): boolean;
+        allowFloatLink(value: boolean): INOrg;
+        allowScrollbar(): boolean;
+        allowScrollbar(value: boolean): INOrg;
+        allowSelect(): boolean;
+        allowSelect(value: boolean): INOrg;
+        allowTooltip(): boolean;
+        allowTooltip(value: boolean): INOrg;
+        autoScale(): string;
+        autoScale(value: string): INOrg;
+        bounds(): {
+            x: number;
+            y: number;
+            width: number;
+            height: number;
+        };
+        clear(): INOrg;
+        clearSelection(): INOrg;
+        contentAlign(): string;
+        contentAlign(value: string): INOrg;
+        defaultImage(): string;
+        defaultImage(src: string): INOrg;
+        destroy(): void;
+        dragging(): {
+            isDragging: boolean;
+            data: object;
+        };
+        dragging(options: {isDragging: boolean; data: object}): INOrg;
+        expandButton(): boolean;
+        expandButton(value: boolean): INOrg;
+        focus(): INOrg;
+        hideGuideline(): INOrg;
+        hideWatermark(): INOrg;
+        loadFromFile(options?: {startLoad(...param: any); endLoad(...param: any)}): INOrg;
+        loadJson(options: {
             data: OrgObject;
+            url?: string;
             param?: Object;
-            type?: string | 'get';
-            isAsync?: boolean | true;
-            append?: boolean | false;
-            update?: boolean | false;
-            success?: Function;
-            fail?: Function;
-        }) => void;
+            type?: string = 'get';
+            isAsync?: boolean = true;
+            append?: boolean = false;
+            update?: boolean = false;
+            success?(...params: any);
+            fail?(...params: any);
+        }): INOrg;
+        padding(): string;
+        padding(value: string): INOrg;
+        releaseLayout(): INOrg;
+        requestUpdate(): INOrg;
+        saveAsExcel(options: any): void;
+        saveAsHml(options: {filename?: string; padding?: number = 0; startSave?(...params: any); endSave?(...params: any)}): void;
+        saveAsImage(options: any): void;
+        saveAsJson(options: {filename?: string = 'inorg'; startSave?(...params: any); endSave?(...params: any)}): void;
+        saveAsPptx(options: any): void;
+        scale(): number | string;
+        scale(value: number | 'fit' | 'fullfit' | 'fitw' | 'fith'): INOrg;
+        selectedNodes(): Array<string>;
+        showGuideline(options: {
+            orientation: string = 'landscape';
+            backgroundColor: string = 'whitesmoke';
+            borderColor: string = 'gray';
+            padding: number = 2;
+        }): INOrg;
+        showWatermark(options: any): void;
+        suspendLayout(): INOrg;
+        toJSON(): object;
+        viewportAlign(
+            value: 'topLeft' | 'topCenter' | 'topRight' | 'leftCenter' | 'center' | 'rightCenter' | 'bottomLeft' | 'bottomCenter' | 'bottomRight'
+        ): INOrg;
+        viewportAlign(): 'topLeft' | 'topCenter' | 'topRight' | 'leftCenter' | 'center' | 'rightCenter' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
+        viewportBounds(): {x: number; y: number; width: number; height: number};
+        wheelAction(): 'scroll' | 'zoom';
+        wheelAction(value: 'scroll' | 'zoom');
+        zoomFactor(): number;
+        zoomFactor(value: number): INOrg;
+        zoomIn(centerToSelected: boolean = false): INOrg;
+        zoomOut(centerToSelected: boolean = false): INOrg;
+
+        nodes(pkey: string): Node;
     };
 
     type Node = {
-        addEvent: (events, handler) => any;
-        alignment: (value) => any;
-        bounds: () => any;
-        center: (options) => any;
-        children: () => any;
-        clearStyle: (name) => any;
-        connect: () => any;
-        descendant: () => any;
-        documentBounds: () => any;
-        expand: (type, value, triggering, withChild) => any;
-        expandable: (type, value) => any;
-        expandButton: (type, property, value) => any;
-        fields: (query) => any;
-        filter: (func) => any;
-        foreach: (func) => any;
-        hasChildren: () => any;
-        hasList: () => any;
-        hasMembers: () => any;
-        hasParent: () => any;
-        hasSupporter: () => any;
-        isDraw: () => any;
-        isLabel: () => any;
-        isMember: () => any;
-        isSupporter: () => any;
-        layerSpacing: (value) => any;
+        addEvent(event: 'mousedown' | 'mouseup' | 'click' | 'mouseover' | 'mouseenter' | 'mouseleave', handler: (...params) => any): Node;
+        alignment(): 'bus' | 'busl' | 'busr' | 'wc' | 'wl' | 'wr';
+        alignment(value: 'bus' | 'busl' | 'busr' | 'wc' | 'wl' | 'wr'): INOrg;
+        bounds(): {
+            x: number;
+            y: number;
+            width: number;
+            height: number;
+        };
+        center(options: {alignment?: 'center' | 'auto' | 'topCenter' = 'center'; zoomToFit?: boolean = false; delay?: number = 0}): Node;
+        center(options: number): Node;
+        children(): Node;
+        clearStyle(name: string): Node;
+        connect(): Node;
+        descendant(): Node;
+        documentBounds(): {
+            x: number;
+            y: number;
+            width: number;
+            height: number;
+        };
+        expand(type, value, triggering, withChild): {type: 'to' | 'from'; value?: boolean; triggering?: boolean = false; withChild?: boolean = false};
+        expandable(): boolean;
+        expandable(type?: 'to' | 'from', value?: boolean): Node;
+        expandButton(type?: 'to' | 'from', property?: {visible: boolean; expand: boolean}, value?): Node;
+
+        fields(query: string): object;
+
+        filter(func: (...params) => any): Array<object>;
+        foreach(func: (...params) => any);
+        hasChildren(): Node;
+        hasList(): boolean;
+        hasMembers(): boolean;
+        hasParent(): boolean;
+        hasSupporter(): boolean;
+        isDraw(): boolean;
+        isLabel(): boolean;
+        isMember(): boolean;
+        isSupporter(): boolean;
+        layerSpacing(): boolean;
+        layerSpacing(value): Node;
         level: (level) => any;
         makeImage: () => any;
         margin: (value) => any;

@@ -55,8 +55,6 @@ declare module 'inorg' {
         allowScrollbar(value: boolean): INOrg;
         allowSelect(): boolean;
         allowSelect(value: boolean): INOrg;
-        allowTooltip(): boolean;
-        allowTooltip(value: boolean): INOrg;
         autoScale(): string;
         autoScale(value: string): INOrg;
         bounds(): {
@@ -69,8 +67,6 @@ declare module 'inorg' {
         clearSelection(): INOrg;
         contentAlign(): string;
         contentAlign(value: string): INOrg;
-        defaultImage(): string;
-        defaultImage(src: string): INOrg;
         destroy(): void;
         dragging(): {
             isDragging: boolean;
@@ -80,7 +76,6 @@ declare module 'inorg' {
         expandButton(): boolean;
         expandButton(value: boolean): INOrg;
         focus(): INOrg;
-        hideGuideline(): INOrg;
         hideWatermark(): INOrg;
         loadFromFile(options?: {startLoad(...param: any); endLoad(...param: any)}): INOrg;
         loadJson(options: {
@@ -97,28 +92,14 @@ declare module 'inorg' {
         padding(): string;
         padding(value: string): INOrg;
         releaseLayout(): INOrg;
-        requestUpdate(): INOrg;
         saveAsExcel(options: any): void;
-        saveAsHml(options: {filename?: string; padding?: number = 0; startSave?(...params: any); endSave?(...params: any)}): void;
         saveAsImage(options: any): void;
         saveAsJson(options: {filename?: string = 'inorg'; startSave?(...params: any); endSave?(...params: any)}): void;
-        saveAsPptx(options: any): void;
         scale(): number | string;
         scale(value: number | 'fit' | 'fullfit' | 'fitw' | 'fith'): INOrg;
-        selectedNodes(): Array<string>;
-        showGuideline(options: {
-            orientation: string = 'landscape';
-            backgroundColor: string = 'whitesmoke';
-            borderColor: string = 'gray';
-            padding: number = 2;
-        }): INOrg;
         showWatermark(options: any): void;
         suspendLayout(): INOrg;
         toJSON(): object;
-        viewportAlign(
-            value: 'topLeft' | 'topCenter' | 'topRight' | 'leftCenter' | 'center' | 'rightCenter' | 'bottomLeft' | 'bottomCenter' | 'bottomRight'
-        ): INOrg;
-        viewportAlign(): 'topLeft' | 'topCenter' | 'topRight' | 'leftCenter' | 'center' | 'rightCenter' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
         viewportBounds(): {x: number; y: number; width: number; height: number};
         wheelAction(): 'scroll' | 'zoom';
         wheelAction(value: 'scroll' | 'zoom');
@@ -140,7 +121,12 @@ declare module 'inorg' {
             width: number;
             height: number;
         };
-        center(options: {alignment?: 'center' | 'auto' | 'topCenter' = 'center'; zoomToFit?: boolean = false; delay?: number = 0}): Node;
+        center(options: {
+            alignment?: 'center' | 'auto' | 'topCenter' = 'center';
+            zoomToFit?: boolean = false;
+            exceptListBounds?: boolean;
+            delay?: number = 0;
+        }): Node;
         center(options: number): Node;
         children(): Node;
         clearStyle(name: string): Node;
@@ -171,7 +157,7 @@ declare module 'inorg' {
         isMember(): boolean;
         isSupporter(): boolean;
         layerSpacing(): boolean;
-        layerSpacing(value): Node;
+        layerSpacing(value: number): Node;
         level: (level) => any;
         makeImage: () => any;
         margin: (value) => any;
@@ -201,4 +187,4 @@ declare module 'inorg' {
     };
 }
 
-function createINOrg(id: string, option: Object): INOrg;
+declare const createINOrg = (name: string, opt: any) => INOrg;

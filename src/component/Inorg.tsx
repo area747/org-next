@@ -1466,19 +1466,21 @@ const orgData: OrgObject = {
 };
 export default function Inorg() {
     let org = useSelector((state: RootState) => state.orgObject);
-    let inorg = useRef(null);
+    let ref = useRef<INOrg>();
+    let inorg: INOrg | undefined = ref.current;
     const dispatch = useDispatch();
 
     useScript('/lib/softin.js', 'softin');
     useScript('/lib/inorginfo.js', 'inorginfo');
     useScript('/lib/inorg.js', 'inorg', () => {
-        inorg.current = createINOrg('viewOrg', {});
+        ref.current = createINOrg('viewOrg', {});
+        dispatch(setOrgObject(orgData));
     });
 
     useEffect(() => {
         console.log(inorg);
-        if (inorg) {
-            inorg.current;
+        if (typeof inorg !== 'undefined') {
+            inorg.loadJson({data: org});
         }
 
         return () => {

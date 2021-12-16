@@ -4,7 +4,6 @@ import React, {useEffect, useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../reducer';
 import {setOrgObject} from '../reducer/orgObject';
-import {inorgAction} from '../reducer/inorg';
 import useScript from './scriptLoader';
 
 // function new_script(src: string) {

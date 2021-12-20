@@ -4,6 +4,7 @@ import React, {useEffect, useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../reducer';
 import {setOrgObject} from '../reducer/orgObject';
+import api from '../repo/axios';
 import useScript from './scriptLoader';
 
 // function new_script(src: string) {
@@ -1477,6 +1478,10 @@ export default function Inorg() {
     });
 
     useEffect(() => {
+        loadData();
+    }, []);
+
+    useEffect(() => {
         console.log(inorg);
         if (typeof inorg !== 'undefined') {
             inorg.loadJson({data: org});
@@ -1502,3 +1507,51 @@ export default function Inorg() {
         </div>
     );
 }
+
+const loadData = () => {
+    Promise.all([
+        api.postRequest('api/cmm/message.json', {
+            messageName: 'ORG_R_000011',
+            reqMessage: {
+                companySeq: '132000',
+                baseYmd: '2021-12-20',
+                orgId: '41030001',
+                subOrgYn: 'Y',
+                matrixYn: 'N',
+            },
+        }),
+        api.postRequest('api/cmm/message.json', {
+            messageName: 'EMP_R_000020',
+            reqMessage: {
+                companySeq: '132000',
+                baseYmd: '2021-12-20',
+                subOrgYn: 'Y',
+                orgId: '41030001',
+                columnFilterList: ['orgNm', 'empNm', 'dutyNm', 'posNm', 'schNm', 'addr'],
+                emptyPos: false,
+                matrixYn: 'N',
+            },
+        }),
+    ]).then(([orgData, empData]) => {
+        let res = mergeData(orgData, empData);
+        console.log(res);
+    });
+};
+
+const mergeData = (orgData: Array<any>, empData: Array<any>) => {
+    orgData.forEach((orgItem, orgIdx) => {
+        orgItem.member = [];
+        empData.forEach((empItem, empIdx, arr) => {
+            if (empItem.orgId !== orgItem.orgId) {
+                return;
+            }
+            if (empItem.leaderYn === 'Y') {
+                orgItem = Object.assign(orgItem, empItem);
+            } else {
+                orgItem.member.push(empItem);
+            }
+        });
+    });
+
+    return orgData;
+};

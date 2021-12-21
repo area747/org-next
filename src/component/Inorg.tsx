@@ -1,4 +1,4 @@
-import {OrgObject} from 'orgObject';
+import {OrgObject, OrgData} from 'orgObject';
 import {INOrg, Node} from 'inorg';
 import React, {useEffect, useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
@@ -1079,390 +1079,6 @@ const orgData: OrgObject = {
             },
         },
     },
-    orgData: [
-        {
-            fields: {
-                orgId: {
-                    value: '0_2',
-                },
-                empId: {
-                    value: 'E0_201',
-                },
-                personId: {
-                    value: 'E0_201',
-                },
-                upOrgId: {
-                    value: '0',
-                },
-                posNm: {
-                    value: '상무',
-                },
-                empNm: {
-                    value: '허민병',
-                    style: {
-                        cursor: 'pointer',
-                    },
-                },
-                empPhoto: {
-                    value: '/orgn/images/photo/s25.jpg',
-                },
-                orgSortOrder: {
-                    value: '3',
-                },
-                empSortOrder: {
-                    value: 'E0_201',
-                },
-                positionNm: {
-                    value: 'LGCNS_직무-11',
-                    style: {
-                        cursor: 'pointer',
-                    },
-                },
-                orgTypeLevel: {
-                    value: '2',
-                },
-                orgType: {
-                    value: ' ',
-                    style: {
-                        backgroundColor: '#073763',
-                        fontColor: '#434343',
-                    },
-                },
-                orgNm: {
-                    value: '본부3',
-                    style: {
-                        fontColor: '#434343',
-                        backgroundColor: '#f5fafe',
-                    },
-                },
-                dual: {
-                    value: '',
-                },
-                btn02: {
-                    value: '/orgn/images/test01.png',
-                    style: {
-                        display: false,
-                        toolTip: '조직 요약정보',
-                    },
-                },
-                pkey: '0_2',
-                _chkYn: '0',
-                chkYn: '/orgn/images/chk0.png',
-                empList: {
-                    value: '/orgn/images/test02.png',
-                    style: {
-                        display: true,
-                        toolTip: '조직원 조직도',
-                    },
-                },
-                btn03: {
-                    value: '/orgn/images/test02.png',
-                    style: {
-                        display: false,
-                    },
-                },
-                cmpValue: '0',
-                cmpYn: {
-                    value: '/orgn/images/chka0.png',
-                },
-            },
-            template: 'photoType',
-            link: {
-                template: 'linkSolid',
-            },
-            layout: {
-                supporter: ' ',
-            },
-        },
-        {
-            fields: {
-                orgId: {
-                    value: '0_2_0',
-                },
-                empId: {
-                    value: 'E0_2_001',
-                },
-                personId: {
-                    value: 'E0_2_001',
-                },
-                upOrgId: {
-                    value: '0_2',
-                },
-                posNm: {
-                    value: '부장',
-                },
-                empNm: {
-                    value: '문인식',
-                    style: {
-                        cursor: 'pointer',
-                    },
-                },
-                empPhoto: {
-                    value: '/orgn/images/photo/s2.jpg',
-                },
-                orgSortOrder: {
-                    value: '1',
-                },
-                empSortOrder: {
-                    value: 'E0_2_001',
-                },
-                positionNm: {
-                    value: 'LGCNS_직무-13',
-                    style: {
-                        cursor: 'pointer',
-                    },
-                },
-                orgTypeLevel: {
-                    value: '3',
-                },
-                orgType: {
-                    value: ' ',
-                    style: {
-                        backgroundColor: '#f6b26b',
-                        fontColor: '#434343',
-                    },
-                },
-                orgNm: {
-                    value: '부10',
-                    style: {
-                        fontColor: '#434343',
-                        backgroundColor: '#fefaf5',
-                    },
-                },
-                dual: {
-                    value: '',
-                },
-                btn02: {
-                    value: '/orgn/images/test01.png',
-                    style: {
-                        display: false,
-                        toolTip: '조직 요약정보',
-                    },
-                },
-                pkey: '0_2_0',
-                rkey: '0_2',
-                _chkYn: '0',
-                chkYn: '/orgn/images/chk0.png',
-                empList: {
-                    value: '/orgn/images/test02.png',
-                    style: {
-                        display: true,
-                        toolTip: '조직원 조직도',
-                    },
-                },
-                btn03: {
-                    value: '/orgn/images/test02.png',
-                    style: {
-                        display: false,
-                    },
-                },
-                cmpValue: '0',
-                cmpYn: {
-                    value: '/orgn/images/chka0.png',
-                },
-            },
-            template: 'photoType',
-            link: {
-                template: 'linkSolid',
-            },
-            layout: {
-                supporter: ' ',
-            },
-            collapsed: true,
-        },
-        {
-            fields: {
-                orgId: {
-                    value: '0_2_1',
-                },
-                empId: {
-                    value: 'E0_2_101',
-                },
-                personId: {
-                    value: 'E0_2_101',
-                },
-                upOrgId: {
-                    value: '0_2',
-                },
-                posNm: {
-                    value: '상무',
-                },
-                empNm: {
-                    value: '신진자',
-                    style: {
-                        cursor: 'pointer',
-                    },
-                },
-                empPhoto: {
-                    value: '/orgn/images/photo/s44.jpg',
-                },
-                orgSortOrder: {
-                    value: '2',
-                },
-                empSortOrder: {
-                    value: 'E0_2_101',
-                },
-                positionNm: {
-                    value: 'LGCNS_직무-2',
-                    style: {
-                        cursor: 'pointer',
-                    },
-                },
-                orgTypeLevel: {
-                    value: '3',
-                },
-                orgType: {
-                    value: ' ',
-                    style: {
-                        backgroundColor: '#f6b26b',
-                        fontColor: '#434343',
-                    },
-                },
-                orgNm: {
-                    value: '부11',
-                    style: {
-                        fontColor: '#434343',
-                        backgroundColor: '#fefaf5',
-                    },
-                },
-                dual: {
-                    value: '',
-                },
-                btn02: {
-                    value: '/orgn/images/test01.png',
-                    style: {
-                        display: false,
-                        toolTip: '조직 요약정보',
-                    },
-                },
-                pkey: '0_2_1',
-                rkey: '0_2',
-                _chkYn: '0',
-                chkYn: '/orgn/images/chk0.png',
-                empList: {
-                    value: '/orgn/images/test02.png',
-                    style: {
-                        display: true,
-                        toolTip: '조직원 조직도',
-                    },
-                },
-                btn03: {
-                    value: '/orgn/images/test02.png',
-                    style: {
-                        display: false,
-                    },
-                },
-                cmpValue: '0',
-                cmpYn: {
-                    value: '/orgn/images/chka0.png',
-                },
-            },
-            template: 'photoType',
-            link: {
-                template: 'linkSolid',
-            },
-            layout: {
-                supporter: ' ',
-            },
-            collapsed: true,
-        },
-        {
-            fields: {
-                orgId: {
-                    value: '0_2_2',
-                },
-                empId: {
-                    value: 'E0_2_201',
-                },
-                personId: {
-                    value: 'E0_2_201',
-                },
-                upOrgId: {
-                    value: '0_2',
-                },
-                posNm: {
-                    value: '차장',
-                },
-                empNm: {
-                    value: '한승희',
-                    style: {
-                        cursor: 'pointer',
-                    },
-                },
-                empPhoto: {
-                    value: '/orgn/images/photo/s41.jpg',
-                },
-                orgSortOrder: {
-                    value: '3',
-                },
-                empSortOrder: {
-                    value: 'E0_2_201',
-                },
-                positionNm: {
-                    value: 'LGCNS_직무-8',
-                    style: {
-                        cursor: 'pointer',
-                    },
-                },
-                orgTypeLevel: {
-                    value: '3',
-                },
-                orgType: {
-                    value: ' ',
-                    style: {
-                        backgroundColor: '#f6b26b',
-                        fontColor: '#434343',
-                    },
-                },
-                orgNm: {
-                    value: '부12',
-                    style: {
-                        fontColor: '#434343',
-                        backgroundColor: '#fefaf5',
-                    },
-                },
-                dual: {
-                    value: '',
-                },
-                btn02: {
-                    value: '/orgn/images/test01.png',
-                    style: {
-                        display: false,
-                        toolTip: '조직 요약정보',
-                    },
-                },
-                pkey: '0_2_2',
-                rkey: '0_2',
-                _chkYn: '0',
-                chkYn: '/orgn/images/chk0.png',
-                empList: {
-                    value: '/orgn/images/test02.png',
-                    style: {
-                        display: true,
-                        toolTip: '조직원 조직도',
-                    },
-                },
-                btn03: {
-                    value: '/orgn/images/test02.png',
-                    style: {
-                        display: false,
-                    },
-                },
-                cmpValue: '0',
-                cmpYn: {
-                    value: '/orgn/images/chka0.png',
-                },
-            },
-            template: 'photoType',
-            link: {
-                template: 'linkSolid',
-            },
-            layout: {
-                supporter: ' ',
-            },
-            collapsed: true,
-        },
-    ],
 };
 export default function Inorg() {
     let org = useSelector((state: RootState) => state.orgObject);
@@ -1474,15 +1090,17 @@ export default function Inorg() {
     useScript('/lib/inorginfo.js', 'inorginfo');
     useScript('/lib/inorg.js', 'inorg', () => {
         ref.current = createINOrg('viewOrg', {});
-        dispatch(setOrgObject(orgData));
+        // dispatch(setOrgObject(orgData));
     });
 
     useEffect(() => {
-        loadData();
+        loadData().then(orgList => {
+            orgData.orgData = orgList;
+            dispatch(setOrgObject(orgData));
+        });
     }, []);
 
     useEffect(() => {
-        console.log(inorg);
         if (typeof inorg !== 'undefined') {
             inorg.loadJson({data: org});
         }
@@ -1509,7 +1127,7 @@ export default function Inorg() {
 }
 
 const loadData = () => {
-    Promise.all([
+    return Promise.all([
         api.postRequest('api/cmm/message.json', {
             messageName: 'ORG_R_000011',
             reqMessage: {
@@ -1532,26 +1150,48 @@ const loadData = () => {
                 matrixYn: 'N',
             },
         }),
-    ]).then(([orgData, empData]) => {
-        let res = mergeData(orgData, empData);
-        console.log(res);
+    ]).then(([orgList, empList]) => {
+        let res = mergeData(orgList, empList);
+        let orgData = makeOrgData(res);
+        return orgData;
     });
 };
 
 const mergeData = (orgData: Array<any>, empData: Array<any>) => {
-    orgData.forEach((orgItem, orgIdx) => {
-        orgItem.member = [];
-        empData.forEach((empItem, empIdx, arr) => {
-            if (empItem.orgId !== orgItem.orgId) {
-                return;
-            }
-            if (empItem.leaderYn === 'Y') {
-                orgItem = Object.assign(orgItem, empItem);
-            } else {
-                orgItem.member.push(empItem);
-            }
+    empData = empData.filter((empItem, empIdx, arr) => {
+        if (empItem.leaderYn === 'Y') {
+            orgData.some(orgItem => {
+                if (orgItem.orgId === empItem.orgId) {
+                    Object.assign(orgItem, empItem);
+                    return true;
+                }
+                return false;
+            });
+            return false;
+        }
+        empItem.isMember = true;
+        return true;
+    });
+    return orgData.concat(empData);
+};
+
+const makeOrgData = (orgList: Array<any>) => {
+    let array: Array<OrgData> = [];
+    orgList.forEach((item, idx, arr) => {
+        if (item.isMember) {
+            item.pkey = item.empId;
+            item.mkey = item.orgId;
+        } else {
+            item.pkey = item.orgId;
+            item.rkey = item.upOrgId;
+        }
+        array.push({
+            fields: item,
+            template: 'photoType',
+            link: {
+                template: 'linkSolid',
+            },
         });
     });
-
-    return orgData;
+    return array;
 };

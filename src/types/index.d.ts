@@ -2,7 +2,7 @@ declare module 'orgObject' {
     type OrgObject = {
         model: Model;
         template: Template;
-        orgData?: any;
+        orgData?: Array<OrgData>;
         etcData?: any;
         error?: any;
     };
@@ -26,6 +26,16 @@ declare module 'orgObject' {
         links?: {};
     };
 
+    type OrgData = {
+        fields: {
+            [name: string]: any;
+        };
+        template: string;
+        link?: any;
+        layout?: any;
+        collapsed?: boolean;
+    };
+
     type OrgNode = {
         type?: string;
         isLabel?: boolean;
@@ -33,7 +43,7 @@ declare module 'orgObject' {
         units: Array<any>;
     };
 
-    export {OrgObject, OrgNode};
+    export {OrgObject, Model, Template, OrgData, OrgNode};
 }
 
 declare module 'inorg' {

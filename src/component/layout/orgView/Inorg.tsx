@@ -1,11 +1,11 @@
 import {OrgObject, OrgData} from 'orgObject';
 import {INOrg, Node} from 'inorg';
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {RootState} from '../reducer';
-import {setOrgObject} from '../reducer/orgObject';
-import api from '../repo/axios';
-import useScript from './scriptLoader';
+import {RootState} from '../../../reducer';
+import {setOrgObject} from '../../../reducer/orgObject';
+import api from '../../../repo/axios';
+import useInorg from '../../common/hook/useInorg';
 
 // function new_script(src: string) {
 //     return new Promise<void>(function (resolve, reject) {
@@ -1080,48 +1080,38 @@ const orgData: OrgObject = {
         },
     },
 };
-export default function Inorg() {
+export default function InorgContainer() {
     let org = useSelector((state: RootState) => state.orgObject);
-    let ref = useRef<INOrg>();
-    let inorg: INOrg | undefined = ref.current;
+    let [status, setStatus] = useState({inorgReady: false, dataReady: false});
+    let inorg = useRef<INOrg>();
     const dispatch = useDispatch();
 
-    useScript('/lib/softin.js', 'softin');
-    useScript('/lib/inorginfo.js', 'inorginfo');
-    useScript('/lib/inorg.js', 'inorg', () => {
-        ref.current = createINOrg('viewOrg', {});
-        // dispatch(setOrgObject(orgData));
+    useInorg(() => {
+        inorg.current = createINOrg('viewOrg', {});
+        setStatus(status => {
+            return {...status, inorgReady: true};
+        });
     });
 
     useEffect(() => {
         loadData().then(orgList => {
             orgData.orgData = orgList;
             dispatch(setOrgObject(orgData));
+            setStatus(status => {
+                return {...status, dataReady: true};
+            });
         });
     }, []);
 
     useEffect(() => {
-        if (typeof inorg !== 'undefined') {
-            inorg.loadJson({data: org});
+        if (status.inorgReady && status.dataReady) {
+            inorg.current!.loadJson({data: org});
         }
-
-        return () => {
-            console.log('return');
-        };
-    }, [org]);
+    }, [status]);
 
     return (
-        <div>
-            <button
-                onClick={() => {
-                    dispatch(setOrgObject(orgData));
-                }}
-            >
-                load
-            </button>
-            <button onClick={() => {}}>load</button>
-
-            <div id="viewOrg" style={{width: '100%', height: '500px'}}></div>
+        <div style={{height: '100%'}}>
+            <div id="viewOrg" style={{width: '100%', height: '100%'}}></div>
         </div>
     );
 }

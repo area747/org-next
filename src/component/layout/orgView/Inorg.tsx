@@ -1118,28 +1118,30 @@ export default function InorgContainer() {
 
 const loadData = () => {
     return Promise.all([
-        api.postRequest('api/cmm/message.json', {
-            messageName: 'ORG_R_000011',
-            reqMessage: {
-                companySeq: '132000',
-                baseYmd: '2021-12-20',
-                orgId: '41030001',
-                subOrgYn: 'Y',
-                matrixYn: 'N',
-            },
-        }),
-        api.postRequest('api/cmm/message.json', {
-            messageName: 'EMP_R_000020',
-            reqMessage: {
-                companySeq: '132000',
-                baseYmd: '2021-12-20',
-                subOrgYn: 'Y',
-                orgId: '41030001',
-                columnFilterList: ['orgNm', 'empNm', 'dutyNm', 'posNm', 'schNm', 'addr'],
-                emptyPos: false,
-                matrixYn: 'N',
-            },
-        }),
+        // api.postRequest('api/cmm/message.json', {
+        //     messageName: 'ORG_R_000011',
+        //     reqMessage: {
+        //         companySeq: '132000',
+        //         baseYmd: '2021-12-20',
+        //         orgId: '41030001',
+        //         subOrgYn: 'Y',
+        //         matrixYn: 'N',
+        //     },
+        // }),
+        // api.postRequest('api/cmm/message.json', {
+        //     messageName: 'EMP_R_000020',
+        //     reqMessage: {
+        //         companySeq: '132000',
+        //         baseYmd: '2021-12-20',
+        //         subOrgYn: 'Y',
+        //         orgId: '41030001',
+        //         columnFilterList: ['orgNm', 'empNm', 'dutyNm', 'posNm', 'schNm', 'addr'],
+        //         emptyPos: false,
+        //         matrixYn: 'N',
+        //     },
+        // }),
+        api.postRequest('orgList', {}),
+        api.postRequest('empList', {}),
     ]).then(([orgList, empList]) => {
         let res = mergeData(orgList, empList);
         let orgData = makeOrgData(res);

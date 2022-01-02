@@ -1,0 +1,22 @@
+[
+    {
+        "empId":"emp01",
+        "empNm":"김철수",
+        "dutyNm":"대표이사",
+        "posNm":"대표이사",
+        "orgId":"1",
+        "leaderYn":"Y"
+    },
+    {
+        "empId":"emp02",
+        "empNm":"emp02",
+        "orgId":"2",
+        "leaderYn":"Y"
+    },
+    {
+        "empId":"emp03",
+        "empNm":"emp03",
+        "orgId":"3",
+        "leaderYn":"Y"
+    }
+]

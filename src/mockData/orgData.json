@@ -1,0 +1,17 @@
+[
+    {
+        "orgId":"1",
+        "orgNm":"1",
+        "upOrgId":""
+    },
+    {
+        "orgId":"2",
+        "orgNm":"2",
+        "upOrgId":"1"
+    },
+    {
+        "orgId":"3",
+        "orgNm":"3",
+        "upOrgId":"1"
+    }
+]

@@ -25,7 +25,7 @@ const initOrgObject: OrgObject = {
 function orgObject(state: OrgObject = initOrgObject, action: orgObjectAction): OrgObject {
     switch (action.type) {
         case 'SET_ORG_OBJECT':
-            state = action.payload;
+            state = Object.assign({}, action.payload);
             return state;
 
         default:

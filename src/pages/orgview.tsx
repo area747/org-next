@@ -1,8 +1,12 @@
-import {Component, useRef} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {CheckBox} from '../component/common/checkBox';
 import Inorg from '../component/layout/orgView';
+import {RootState} from '../reducer';
+import {setOrgOption} from '../reducer/orgOption';
 
 export default function OrgView() {
+    let orgOption = useSelector((state: RootState) => state.OrgOption);
+    const dispatch = useDispatch();
     return (
         <>
             <div className="card line-none bg-trans">
@@ -69,7 +73,8 @@ export default function OrgView() {
                                     <CheckBox
                                         name="팀원포함조회"
                                         onChange={e => {
-                                            console.log(e);
+                                            orgOption = {...orgOption, useMember: e.target.checked};
+                                            dispatch(setOrgOption(orgOption));
                                         }}
                                     />
                                     <label>

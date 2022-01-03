@@ -1,11 +1,12 @@
 import {combineReducers} from 'redux';
 import counter from './counter';
-import orgObject from './orgObject';
-import inorg from './inorg';
+import OrgObject from './orgObject';
+import {OrgOption} from './orgOption';
 
 const rootReducer = combineReducers({
     counter,
-    orgObject,
+    OrgObject,
+    OrgOption,
 });
 
 // 루트 리듀서를 내보내주세요.

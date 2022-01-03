@@ -3,7 +3,7 @@ import {INOrg, Node} from 'inorg';
 import React, {useEffect, useRef, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../../../reducer';
-import {setOrgObject} from '../../../reducer/orgObject';
+import orgObject, {setOrgObject} from '../../../reducer/orgObject';
 import api from '../../../repo/axios';
 import useInorg from '../../common/hook/useInorg';
 
@@ -1081,7 +1081,8 @@ const orgData: OrgObject = {
     },
 };
 export default function InorgContainer() {
-    let org = useSelector((state: RootState) => state.orgObject);
+    let org = useSelector((state: RootState) => state.OrgObject);
+    let orgOption = useSelector((state: RootState) => state.OrgOption);
     let [status, setStatus] = useState({inorgReady: false, dataReady: false});
     let inorg = useRef<INOrg>();
     const dispatch = useDispatch();
@@ -1104,10 +1105,19 @@ export default function InorgContainer() {
     }, []);
 
     useEffect(() => {
+        org.orgData?.forEach((item, i, arr) => {
+            item.template = orgOption.useMember ? 'photoTypeList' : 'photoType';
+        });
+        inorg.current?.scale(orgOption.viewSize);
+        dispatch(setOrgObject(org));
+    }, [orgOption]);
+
+    useEffect(() => {
         if (status.inorgReady && status.dataReady) {
             inorg.current!.loadJson({data: org});
+            console.log(org);
         }
-    }, [status]);
+    }, [status, org]);
 
     return (
         <div style={{height: '100%'}}>
@@ -1118,32 +1128,129 @@ export default function InorgContainer() {
 
 const loadData = () => {
     return Promise.all([
-        // api.postRequest('api/cmm/message.json', {
-        //     messageName: 'ORG_R_000011',
-        //     reqMessage: {
-        //         companySeq: '132000',
-        //         baseYmd: '2021-12-20',
-        //         orgId: '41030001',
-        //         subOrgYn: 'Y',
-        //         matrixYn: 'N',
-        //     },
-        // }),
-        // api.postRequest('api/cmm/message.json', {
-        //     messageName: 'EMP_R_000020',
-        //     reqMessage: {
-        //         companySeq: '132000',
-        //         baseYmd: '2021-12-20',
-        //         subOrgYn: 'Y',
-        //         orgId: '41030001',
-        //         columnFilterList: ['orgNm', 'empNm', 'dutyNm', 'posNm', 'schNm', 'addr'],
-        //         emptyPos: false,
-        //         matrixYn: 'N',
-        //     },
-        // }),
-        api.postRequest('orgList', {}),
-        api.postRequest('empList', {}),
-    ]).then(([orgList, empList]) => {
+        api.message({
+            messageName: 'ORG_R_000011',
+            reqMessage: {
+                companySeq: '132000',
+                baseYmd: '2021-12-20',
+                orgId: '41030001',
+                subOrgYn: 'Y',
+                matrixYn: 'N',
+            },
+        }),
+        api.message({
+            messageName: 'EMP_R_000020',
+            reqMessage: {
+                companySeq: '132000',
+                baseYmd: '2021-12-20',
+                subOrgYn: 'Y',
+                orgId: '41030001',
+                columnFilterList: ['orgNm', 'empNm', 'dutyNm', 'posNm', 'schNm', 'addr'],
+                emptyPos: false,
+                matrixYn: 'N',
+            },
+        }),
+        api.messageList({
+            requestId: '1',
+            transactionYn: '',
+            list: [
+                {
+                    resultId: 'RESULT_00001',
+                    handlerName: 'ApiMessageHandler',
+                    messageName: 'SVC_R_000010',
+                    reqMessage: {
+                        companySeq: '132000',
+                        codeType: 'SSP_NODE_DESIGN',
+                        useYn: 'Y',
+                    },
+                },
+                {
+                    resultId: 'RESULT_00001',
+                    handlerName: 'ApiMessageHandler',
+                    messageName: 'SVC_R_000010',
+                    reqMessage: {
+                        companySeq: '132000',
+                        codeType: 'SSP_ORG_TYPE_CD',
+                        useYn: 'Y',
+                    },
+                },
+                {
+                    resultId: 'RESULT_00001',
+                    handlerName: 'ApiMessageHandler',
+                    messageName: 'SVC_R_000010',
+                    reqMessage: {
+                        companySeq: '132000',
+                        codeType: 'SSP_POS_CD',
+                        useYn: 'Y',
+                    },
+                },
+                {
+                    resultId: 'RESULT_00001',
+                    handlerName: 'ApiMessageHandler',
+                    messageName: 'SVC_R_000010',
+                    reqMessage: {
+                        companySeq: '132000',
+                        codeType: 'SSP_DUTY_CD',
+                        useYn: 'Y',
+                    },
+                },
+                {
+                    resultId: 'RESULT_00001',
+                    handlerName: 'ApiMessageHandler',
+                    messageName: 'SVC_R_000010',
+                    reqMessage: {
+                        companySeq: '132000',
+                        codeType: 'SSP_ORG_NM_LANG_BIND',
+                        useYn: 'Y',
+                    },
+                },
+                {
+                    resultId: 'RESULT_00001',
+                    handlerName: 'ApiMessageHandler',
+                    messageName: 'SVC_R_000010',
+                    reqMessage: {
+                        companySeq: '132000',
+                        codeType: 'SSP_ORG_COMPARE_DATA_BIND',
+                        useYn: 'Y',
+                    },
+                },
+                {
+                    resultId: 'RESULT_00001',
+                    handlerName: 'ApiMessageHandler',
+                    messageName: 'SVC_R_000010',
+                    reqMessage: {
+                        companySeq: '132000',
+                        codeType: 'SSP_EMP_EVAL_DATA_BIND_CD',
+                        useYn: 'Y',
+                    },
+                },
+                {
+                    resultId: 'RESULT_00001',
+                    handlerName: 'ApiMessageHandler',
+                    messageName: 'SVC_R_000010',
+                    reqMessage: {
+                        companySeq: '132000',
+                        codeType: 'SSP_ORG_ORDER_CD',
+                        useYn: 'Y',
+                    },
+                },
+                {
+                    resultId: 'RESULT_00001',
+                    handlerName: 'ApiMessageHandler',
+                    messageName: 'SVC_R_000010',
+                    reqMessage: {
+                        companySeq: '132000',
+                        codeType: 'SSP_ORG_SUMMARY_ITEM',
+                        useYn: 'Y',
+                    },
+                },
+            ],
+        }),
+        // api.postRequest('orgList', {}),
+        // api.postRequest('empList', {}),
+    ]).then(([orgList, empList, svcList]) => {
         let res = mergeData(orgList, empList);
+        console.log(svcList);
         let orgData = makeOrgData(res);
         return orgData;
     });

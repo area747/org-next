@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {CheckBox} from '../component/common/checkBox';
 import Inorg from '../component/layout/orgView';
@@ -6,7 +7,12 @@ import {setOrgOption} from '../reducer/orgOption';
 
 export default function OrgView() {
     let orgOption = useSelector((state: RootState) => state.OrgOption);
+    let empTypeCd = useSelector((state: RootState) => state.Service.empTypeCd);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        console.log(empTypeCd);
+    }, [empTypeCd]);
     return (
         <>
             <div className="card line-none bg-trans">
@@ -50,14 +56,20 @@ export default function OrgView() {
                             <div className="form-item">
                                 <label>조회레벨</label>
                                 <select className="form-control w-120" name="show_org_level" id="show_org_level">
-                                    <option value=""></option>
+                                    {empTypeCd.map(item => {
+                                        return (
+                                            <option key={item.code} value={item.code}>
+                                                {item.codeName}
+                                            </option>
+                                        );
+                                    })}
                                 </select>
                             </div>
                         </div>
                         <div className="form-group p-r-8">
                             <div className="form-item">
                                 <label>권한조직</label>
-                                <select className="form-control w-120" id="permittedOrg"></select>
+                                <select className="form-control w-120"></select>
                             </div>
                         </div>
                         <div className="form-group line-left">

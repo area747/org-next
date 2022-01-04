@@ -6,6 +6,7 @@ import {RootState} from '../../../reducer';
 import orgObject, {setOrgObject} from '../../../reducer/orgObject';
 import api from '../../../repo/axios';
 import useInorg from '../../common/hook/useInorg';
+import {setEmpTypeCd} from '../../../reducer/service';
 
 // function new_script(src: string) {
 //     return new Promise<void>(function (resolve, reject) {
@@ -1095,9 +1096,10 @@ export default function InorgContainer() {
     });
 
     useEffect(() => {
-        loadData().then(orgList => {
+        loadData().then(([orgList, svcList]) => {
             orgData.orgData = orgList;
             dispatch(setOrgObject(orgData));
+            dispatch(setEmpTypeCd(svcList[1].resMessage.RESULT_00001));
             setStatus(status => {
                 return {...status, dataReady: true};
             });
@@ -1250,9 +1252,8 @@ const loadData = () => {
         // api.postRequest('empList', {}),
     ]).then(([orgList, empList, svcList]) => {
         let res = mergeData(orgList, empList);
-        console.log(svcList);
         let orgData = makeOrgData(res);
-        return orgData;
+        return [orgData, svcList];
     });
 };
 

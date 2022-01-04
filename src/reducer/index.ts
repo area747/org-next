@@ -2,11 +2,13 @@ import {combineReducers} from 'redux';
 import counter from './counter';
 import OrgObject from './orgObject';
 import {OrgOption} from './orgOption';
+import {Service} from './service';
 
 const rootReducer = combineReducers({
     counter,
     OrgObject,
     OrgOption,
+    Service,
 });
 
 // 루트 리듀서를 내보내주세요.

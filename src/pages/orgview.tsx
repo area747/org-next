@@ -4,15 +4,17 @@ import {CheckBox} from '../component/common/checkBox';
 import Inorg from '../component/layout/orgView';
 import {RootState} from '../reducer';
 import {setOrgOption} from '../reducer/orgOption';
+import {loadServiceCode} from '../reducer/serviceCode';
 
 export default function OrgView() {
     let orgOption = useSelector((state: RootState) => state.OrgOption);
-    let empTypeCd = useSelector((state: RootState) => state.Service.empTypeCd);
+    let orgTypeCd = useSelector((state: RootState) => state.ServiceCode.orgTypeCd);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log(empTypeCd);
-    }, [empTypeCd]);
+        dispatch(loadServiceCode());
+    }, []);
+
     return (
         <>
             <div className="card line-none bg-trans">
@@ -56,7 +58,7 @@ export default function OrgView() {
                             <div className="form-item">
                                 <label>조회레벨</label>
                                 <select className="form-control w-120" name="show_org_level" id="show_org_level">
-                                    {empTypeCd.map(item => {
+                                    {orgTypeCd.map(item => {
                                         return (
                                             <option key={item.code} value={item.code}>
                                                 {item.codeName}

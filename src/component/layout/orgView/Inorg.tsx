@@ -22,7 +22,9 @@ import useInorg from '../../common/hook/useInorg';
 // const my_script = new_script('http://example.com/aaa.js');
 export default function InorgContainer() {
     let org = useSelector((state: RootState) => state.OrgObject);
-    let orgOption = useSelector((state: RootState) => state.OrgOption);
+    let useMember = useSelector((state: RootState) => state.OrgOption.useMember);
+    let viewSize = useSelector((state: RootState) => state.OrgOption.viewSize);
+    let orgTypeLevel = useSelector((state: RootState) => state.OrgOption.orgTypeLevel);
     let inorg = useRef<INOrg>();
     const dispatch = useDispatch();
 
@@ -32,16 +34,25 @@ export default function InorgContainer() {
     });
 
     useEffect(() => {
+        org.orgData?.reduceRight((acc, item, i, arr) => {
+            if (item.fields.orgTypeCd > orgTypeLevel) {
+                arr.splice(i, 1);
+            }
+            return acc;
+        });
+        org.orgData?.forEach((item, i, arr) => {
+            item.template = useMember ? item.template.concat('List') : item.template;
+        });
         inorg.current?.loadJson({data: org});
     }, [org]);
 
     useEffect(() => {
-        org.orgData?.forEach((item, i, arr) => {
-            item.template = orgOption.useMember ? 'photoTypeList' : 'photoType';
-        });
-        inorg.current?.scale(orgOption.viewSize);
-        dispatch(setOrgObject(org));
-    }, [orgOption]);
+        dispatch(loadOrgData());
+    }, [useMember, orgTypeLevel]);
+
+    useEffect(() => {
+        inorg.current?.scale(viewSize);
+    }, [viewSize]);
 
     return (
         <div style={{height: '100%'}}>

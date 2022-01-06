@@ -1,0 +1,45 @@
+.GridMain1 .GridMain2 .GMKeyfield { display: none!important; }
+.GridMain1 .GridMain2 .GMKeyfield+.GMHeaderText::after { content: ''; display: inline-block; width: 4px; height: 4px; border-radius: 4px; background: #E0205C; position: relative; top: -7px; right: -1px; }
+.GridMain1 .GridMain2 .GMMainTable { border: 1px solid #8996A3; border-radius: 3px; }
+.GridMain1 .GridMain2 .GMCellHeader, .GridMain1 .GridMain2 .GMCellHeaderEmpty { background: #E9EFF5!important;border-right: none!important; border-bottom: none!important; }
+.GridMain1 .GridMain2 .GMCell, .GridMain1 .GridMain2 .GMCellPanel, .GridMain1 .GridMain2 .GMCellFilter, .GridMain1 .GridMain2 .GMHeaderDrag, .GridMain1 .GridMain2 .GMHeaderGroup { border-color: #E9EFF5!important; border-right: none!important; }
+
+/* toggle */
+/* #msgGrid-table .GMBool1.HideCol0C13,
+#codeGrid-table .GMBool1.HideCol0C13 { background: url(/images/icons/ic-switch-on.png) no-repeat 50% 50% !important; background-size: 32px!important; }
+#msgGrid-table .GMBool1RO.HideCol0C13,
+#codeGrid-table .GMBool1RO.HideCol0C13 { background: url(/images/icons/ic-switch-on.png) no-repeat 50% 50% !important; background-size: 32px!important; opacity: 0.5; }
+#msgGrid-table .GMBool0.HideCol0C13,
+#codeGrid-table .GMBool0.HideCol0C13 { background: url(/images/icons/ic-switch-off.png) no-repeat 50% 50%!important; background-size: 32px!important; }
+#msgGrid-table .GMBool0RO.HideCol0C13,
+#codeGrid-table .GMBool0RO.HideCol0C13 { background: url(/images/icons/ic-switch-off.png) no-repeat 50% 50%!important; background-size: 32px!important; opacity: 0.5; }
+#msgGrid-table .GMBool1RO.HideCol0C5,
+#codeGrid-table .GMBool1RO.HideCol0C5 { background: url(/images/icons/ic_Checked_disabled.png) no-repeat 50% 50%!important; background-size: 16px!important; }
+
+#msgGrid-table .GMBool0,
+#codeGrid-table .GMBool0 { background: url(/images/icons/ic_Unchecked.png) no-repeat 50% 50%!important; background-size: 16px!important; }
+#msgGrid-table .GMBool1,
+#codeGrid-table .GMBool1 { background: url(/images/icons/ic_Checked.png) no-repeat 50% 50%!important; background-size: 16px!important; } */
+
+/* down arrow */
+.GridMain1 .GridMain2 .GMEnumRight { background: url(/images/icons/ic_down_8_s_800.png) no-repeat 0px center!important; background-size: 8px!important; }
+
+/* grid */
+.GMHeaderRow { background: #E9EFF5; }
+.GridMain1 .GridMain2 .GMHeaderText { font-size: 12px; letter-spacing: 0.1px; }
+
+/* simulation */
+#summaryOrgChg-table .HideCol8C3,
+#summaryOrgChg-table .HideCol8C13,
+#summaryEmpDualY-table .HideCol11C8,
+#summaryEmpDualY-table .HideCol11C14,
+#summaryPosChg-table .HideCol14C3,
+#summaryPosChg-table .HideCol14C12 {border-left: 1px solid #bfbfbf !important;}
+
+
+/* calendar */
+.GridMain1 .GridMain2 .GMDateRight {background: url(/images/icons/ic-calendar.png) no-repeat 0px center !important; width: 21px; height: 21px;}
+
+/* download */
+#regGrid-table .GMCellButton,
+#regGrid-table .GMCellButton:hover {background: none !important;}

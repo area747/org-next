@@ -5,11 +5,14 @@ let serviceList = {
     orgTypeCd: [] as Array<any>,
     posCd: [] as Array<any>,
     dutyCd: [] as Array<any>,
+    nodeDesign: [] as Array<any>,
 };
 
 export const loadServiceCode = () => (dispatch: Dispatch) => {
-    loadData(dispatch).then(([orgTypeCd, posCd, dutyCd]) => {
+    loadData().then(([orgTypeCd, posCd, dutyCd, nodeDesign]) => {
+        orgTypeCd.unshift({code: '9999', codeName: '전체'});
         dispatch(setOrgTypeCd(orgTypeCd));
+        dispatch(setNodeDesign(nodeDesign));
     });
 };
 
@@ -33,8 +36,13 @@ export const setDutyCd = (diff: typeof serviceList.dutyCd) => ({
     payload: diff,
 });
 
+export const setNodeDesign = (diff: typeof serviceList.nodeDesign) => ({
+    type: 'SET_NODE_DESIGN' as const,
+    payload: diff,
+});
+
 type ServiceState = typeof serviceList;
-type ServiceAction = ReturnType<typeof setService | typeof setOrgTypeCd | typeof setPosCd | typeof setDutyCd>;
+type ServiceAction = ReturnType<typeof setService | typeof setOrgTypeCd | typeof setPosCd | typeof setDutyCd | typeof setNodeDesign>;
 
 export function ServiceCode(state: ServiceState = serviceList, action: ServiceAction): ServiceState {
     switch (action.type) {
@@ -47,12 +55,15 @@ export function ServiceCode(state: ServiceState = serviceList, action: ServiceAc
         case 'SET_POS_CD':
             state = {...state, posCd: action.payload};
             return state;
+        case 'SET_NODE_DESIGN':
+            state = {...state, nodeDesign: action.payload};
+            return state;
         default:
             return state;
     }
 }
 
-const loadData = (dispatch: Dispatch) => {
+const loadData = () => {
     return Promise.all([
         api.message({
             messageName: 'SVC_R_000010',
@@ -75,6 +86,14 @@ const loadData = (dispatch: Dispatch) => {
             reqMessage: {
                 companySeq: '132000',
                 codeType: 'SSP_DUTY_CD',
+                useYn: 'Y',
+            },
+        }),
+        api.message({
+            messageName: 'SVC_R_000010',
+            reqMessage: {
+                companySeq: '132000',
+                codeType: 'SSP_NODE_DESIGN',
                 useYn: 'Y',
             },
         }),

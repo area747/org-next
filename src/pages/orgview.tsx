@@ -3,12 +3,13 @@ import {useDispatch, useSelector} from 'react-redux';
 import {CheckBox} from '../component/common/checkBox';
 import Inorg from '../component/layout/orgView';
 import {RootState} from '../reducer';
-import {setOrgOption} from '../reducer/orgOption';
+import {setOrgTypeLevel, setUseMember} from '../reducer/orgOption';
 import {loadServiceCode} from '../reducer/serviceCode';
 
 export default function OrgView() {
-    let orgOption = useSelector((state: RootState) => state.OrgOption);
     let orgTypeCd = useSelector((state: RootState) => state.ServiceCode.orgTypeCd);
+    let nodeDesign = useSelector((state: RootState) => state.ServiceCode.nodeDesign);
+    let orgTypeLevel = useSelector((state: RootState) => state.OrgOption.orgTypeLevel);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -19,14 +20,14 @@ export default function OrgView() {
         <>
             <div className="card line-none bg-trans">
                 <div className="card-header bg-trans">
-                    <form className="form-inline">
+                    <form className="form-inline" style={{alignItems: 'flex-start'}}>
                         <div className="form-group p-r-8">
                             <div className="form-item">
                                 <label>회사</label>
                                 <select className="form-control w-120" name="sel_type_company" id="sel_type_company"></select>
                             </div>
                         </div>
-                        <div className="form-group line-right">
+                        <div className="form-group p-r-8">
                             <div className="form-item">
                                 <label>기준일자</label>
                                 <div className="orgn-calendar-div w-120">
@@ -34,30 +35,34 @@ export default function OrgView() {
                                 </div>
                             </div>
                         </div>
-                        <div className="form-group p-l-8 p-r-8">
+                        <div className="form-group p-l-8 p-r-8 ">
                             <div className="form-item bus-view">
+                                <label>유형</label>
                                 <div className="button-item selected" id="bus-none">
-                                    <span>가로형</span>
+                                    <i className="ic ic-org-basic"></i>
+                                    <span>기본형</span>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="form-group p-r-8">
-                            <div className="form-item bus-view">
-                                <div className="button-item" id="bus-right">
+                                <div className="button-item" id="bus-right" bus-level="0004">
+                                    <i className="ic ic-org-compelx"></i>
                                     <span>복합형</span>
                                 </div>
                             </div>
                         </div>
-                        <div className="form-group p-r-8">
+                        <div className="form-group p-l-8 p-r-8">
                             <div className="form-item">
                                 <label>복합Level</label>
                                 <select className="form-control w-120" id="show_org_bus_level" disabled></select>
                             </div>
                         </div>
-                        <div className="form-group line-left">
+                        <div className="form-group p-l-8 p-r-8">
                             <div className="form-item">
                                 <label>조회레벨</label>
-                                <select className="form-control w-120" name="show_org_level" id="show_org_level">
+                                <select
+                                    className="form-control w-120"
+                                    onChange={e => {
+                                        dispatch(setOrgTypeLevel(e.target.value));
+                                    }}
+                                >
                                     {orgTypeCd.map(item => {
                                         return (
                                             <option key={item.code} value={item.code}>
@@ -68,29 +73,30 @@ export default function OrgView() {
                                 </select>
                             </div>
                         </div>
-                        <div className="form-group p-r-8">
-                            <div className="form-item">
-                                <label>권한조직</label>
-                                <select className="form-control w-120"></select>
-                            </div>
-                        </div>
-                        <div className="form-group line-left">
+                        <div className="form-group p-l-8 p-r-8">
                             <div className="form-item">
                                 <label>디자인</label>
-                                <div className="button-group" id="btn-group-template"></div>
+                                <div className="button-group" id="btn-group-template">
+                                    {nodeDesign.map((item, idx) => {
+                                        return (
+                                            <div key={idx} className="button-item mini " code-bind={item.code}>
+                                                <span>{item.codeName}</span>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
                             </div>
                         </div>
-                        <div className="form-group line-left">
+                        <div className="form-group p-l-8 p-r-8">
                             <div className="form-item">
                                 <label>조건표시</label>
                                 <div className="row-group">
                                     <CheckBox
                                         name="팀원포함조회"
                                         onChange={e => {
-                                            orgOption = {...orgOption, useMember: e.target.checked};
-                                            dispatch(setOrgOption(orgOption));
+                                            dispatch(setUseMember(e.target.checked));
                                         }}
-                                    />
+                                    ></CheckBox>
                                     <label>
                                         <input type="checkbox" id="s-check-accept-pos" className="checkbox-temp" disabled></input>
                                         포지션
@@ -106,7 +112,7 @@ export default function OrgView() {
                                 </div>
                             </div>
                         </div>
-                        <div className="form-group line-left">
+                        <div className="form-group p-l-8 p-r-8">
                             <div className="form-item">
                                 <label>파일</label>
                                 <button type="button" className="btn" id="btn-print-org-show">

@@ -1,0 +1,39 @@
+.ic {
+    display: inline-block;
+    content: '';
+    vertical-align: middle;
+}
+
+.ic-org-basic {
+    background: url(/images/icons/org/org_basic.svg) no-repeat center center;
+    background-size: contain;
+    width: 35px;
+    height: 26px;
+}
+
+.selected .ic-org-basic {
+    background: url(/images/icons/org/org_basic_selected.svg) no-repeat center center;
+    background-size: contain;
+    width: 35px;
+    height: 26px;
+}
+
+.ic-org-compelx {
+    background: url(/images/icons/org/org_complex.svg) no-repeat center center;
+    background-size: contain;
+    width: 35px;
+    height: 26px;
+}
+
+.selected .ic-org-compelx{
+    background: url(/images/icons/org/org_complex_selected.svg) no-repeat center center;
+    background-size: contain;
+    width: 35px;
+    height: 26px;
+}
+
+.ic-unfold-horizontal { background: url(/images/icons/ic-unfold-horizontal.png) no-repeat center center; width:16px; height:16px; cursor: pointer; }
+.ic-unfold-horizontal.fold { background: url(/images/icons/ic-fold-horizontal.png) no-repeat center center; width:16px; height:16px; cursor: pointer; }
+
+.ic-unfold-vertical { background: url(/images/icons/ic-unfold-vertical.png) no-repeat center center; width:16px; height:16px; cursor: pointer; }
+.ic-fold-vertical { background: url(/images/icons/ic-fold-vertical.png) no-repeat center center; width:16px; height:16px; cursor: pointer; }

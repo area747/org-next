@@ -1,0 +1,35 @@
+@import url('./components/article.css');
+@import url('./components/button.css');
+@import url('./components/form.css');
+@import url('./components/grid.css');
+@import url('./components/icon.css');
+/* @import url('./components/tree.css'); */
+
+@import url('./pages/orgView.css');
+@import url('./pages/orgConfig.css');
+@import url('./softin.sap.css');
+
+.card {border:1px solid #BEC9D4; border-radius: 3px; background-color: #FFFFFF; margin-bottom: 7px;}
+.card.trans {background: transparent; border: none;}
+.card-header {border-bottom: 1px solid #BEC9D4; background-color: #FFFFFF;}
+.card-header .btn+.btn{margin-left:3px;}
+.card-header.trans {background:transparent;}
+.card-header.fold {display:flex; justify-content: center; background:#354a5f; padding: 0;}
+.card-header .pull-left .form-control{width: 200px;}
+.card-header .pull-left .form-group{margin-bottom: 0px;}
+.card-header .pull-left .form-group:last-child {padding-right: 0px;}
+.card-header .pull-left .form-group button {position: relative;}
+.card-header .pull-left .form-group button span {vertical-align: middle;}
+
+#btnSearch, #btnRetrieve, #mergeDataSearch { background: #424952; border-coLor:#424952; color: white; border-radius: 3px; padding: 0.5rem; font-weight: 580;}
+.btnPlusMinus { background: white; border-color: #89919a; font-size: 12px; Line-height: 17px; letter-spacing: 0.2px; color: #56606B; padding: 0.5rem; font-weight:800}
+
+#btnSearch:hover, #btnRetrieve:hover { background: #6B7682; border-color: #89919a; }
+
+#btnSearch:active, #btnRetrieve:hover { background: #6B7682; border-color: #89919a; }
+
+#btnlMsgAiddzhover { border-color: #89919a; }
+
+#btnMsgAddzactive { border-coLor: #89919a; background: #F5F8FA; }
+
+#btnSearch:focus,#btnRetrieve:focus,#btnlMsgAlddzfocus { box-shadow: none; }

@@ -1,0 +1,121 @@
+@import url('https://sapui5.hana.ondemand.com/resources/sap/ui/core/themes/base/SAP-icons.css');
+
+/*
+ * sap-icon 공통
+ */
+.sap-cm {
+    font-family: SAP-icons !important;
+    margin-right: 3px;
+}
+
+/*
+ * top-bar / side-bar
+ */
+.top-common {
+    font-size: 1.2rem !important;
+    line-height: 2rem !important;
+    color: #fff;
+    vertical-align: sub;
+}
+
+.top-globe::before {
+    content: "\e0e8";
+}
+
+.top-badge::before {
+    content: "\e19c";
+}
+
+.top-address-card::before {
+    content: "\e08c";
+}
+
+.top-log::before {
+    content: "\e022";
+}
+
+.side-fa-cogs::before {
+    content: "\e0a6";
+}
+
+.side-service::before {
+    content: "\e00c";
+}
+
+.side-fa-sitemap::before {
+    content: "\e140";
+}
+
+.side-fa-bars::before {
+    content: "\e22b";
+}
+
+.side-org::before {
+    content: "\e0b7";
+}
+
+.side-fa-laptop::before {
+    content: "\e027";
+}
+
+/*
+ * 시뮬레이션
+ */
+.simul-play::before {
+    content: "\e09b";
+}
+
+.simul-accept::before {
+    content: "\e05b";
+}
+
+.simul-display::before {
+    content: "\e1dd";
+}
+
+.simul-cancel::before {
+    content: "\e1c7";
+}
+
+.simul-down::before {
+    content: "\e03a";
+}
+
+.simul-save::before {
+    content: "\e09a";
+}
+
+.simul-pool-list::before {
+    content: "\e275";
+}
+
+.simul-summary-info::before {
+    content: "\e202";
+}
+
+.simul-list::before {
+    content: "\e0a5";
+}
+
+/*
+ * for SAP checkbox 디자인
+ */
+.hidden-checkbox {
+    display: none;
+}
+input[type="checkbox"] + label {
+    cursor: pointer;
+    padding-left: 23px;
+    line-height: 16px;
+    background-repeat: no-repeat;
+    background-image: url('/images/sap_chk0.png');
+}
+input[type="checkbox"]:checked + label {
+    background-image: url('/images/sap_chk1.svg');
+}
+input[type="checkbox"]:disabled + label {
+    background-image: url('/images/sap_chk2.png');
+}
+input[type="checkbox"]:checked:disabled + label {
+    background-image: url('/images/sap_chk3.svg');
+}

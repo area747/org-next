@@ -1,0 +1,24 @@
+.article-block .side-title{vertical-align:middle;margin-bottom:8px;}
+.article-block .side-title h3{display: inline-block;font-size:16px;line-height:22px;letter-spacing:-0.2px;font-weight:700;margin-bottom:0;}
+.article-block .side-title h3+.badge{margin-left:6px;margin-bottom:0;position:relative;top:-2px;}
+.article-block .side-title .pull-right{position:relative;top:3px;}
+.article-block .side-title .pull-right .side-search{font-size:11px;width:107px;margin-right: 7px;border:none;background:transparent;vertical-align: middle;}
+.article-block .side-title .pull-right .ic-search.dark{vertical-align: middle;}
+.article-side-block .side-header .left{position: absolute;top:7px;left:14px;cursor:pointer;}
+.article-side-block .side-header h4 .left+span{padding-left:20px;font-size:12px;line-height:18px;letter-spacing: 0.1px;font-weight: 500;}
+
+.org-view-area{background:transparent;}
+#tree-view.like-tree .GridMain1 .GridMain2 .GMMainTable {border:none;}
+#tree-view.like-tree .GridMain1 .GridMain2 .GMCell {padding: 0;}
+#tree-view.like-tree .GridMain1 .GridMain2 .GMCell,
+#tree-view.like-tree .GridMain1 .GridMain2 .GMCellPanel,
+#tree-view.like-tree .GridMain1 .GridMain2 .GMCellFilter,
+#tree-view.like-tree .GridMain1 .GridMain2 .GMHeaderDrag,
+#tree-view.like-tree .GridMain1 .GridMain2 .GMHeaderGroup {
+    border-bottom: none;
+}
+
+
+/* badge */
+.badge{border-radius:9px;padding:1px 7px;font-weight:700;font-size:10px;line-height:14px;letter-spacing:-0.14px;}
+.badge-default{background:#DAE3ED;color:#424952;}

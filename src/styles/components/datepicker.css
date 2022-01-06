@@ -1,0 +1,32 @@
+.GridMain1 .GridMain2 .GMPickOuter{box-shadow:none!important;width:308px!important;}
+.GridMain1 .GridMain2 .GMPickTableParent .GMPickTable{width:308px!important;}
+.GridMain1 .GridMain2 .GMPickTable{height:276px!important;}
+.GridMain1 .GridMain2 .GMPickMY{height:34px;text-align:left!important;background-color:#ffffff!important;padding:12px 16px!important;border-bottom:1px solid #DAE3ED!important;}
+.GridMain1 .GridMain2 .GMPickMYDown{display:inline-block!important;color:#000;background: url(../../images/icons/ic_down_8_s_800.png) no-repeat right!important;margin: 6px 12px 6px 6px!important;}
+.GridMain1 .GridMain2 .GMPickMYUp{display:inline-block!important;color:#000;background: url(../../images/icons/ic_down_8_s_800.png) no-repeat right #E9EFF5!important;border-radius:5px;margin: 6px 12px 6px 6px!important;}
+.GridMain1 .GridMain2 .GMPickBL{position:absolute;right:56px;top:12px;display:inline-block!important;width:16px!important;height:16px!important;background:url(../../images/icons/ic_left_16_l_800.png) no-repeat 50%!important;}
+.GridMain1 .GridMain2 .GMPickBR{position:absolute;right:24px;top:12px;display:inline-block!important;width:16px!important;height:16px!important;background:url(../../images/icons/ic_right_16_l_800.png) no-repeat 50%!important;}
+
+.GridMain1 .GridMain2 .GMPickFooter{position:absolute;top:18px;left: 116px;padding:0!important;background:transparent!important;border-top:none!important;}
+.GridMain1 .GridMain2 .GMPickFooter button{border:1px solid #DAE3ED;font-weight:500;font-size:11px;line-height:16px;letter-spacing:-0.2px;}
+.GridMain1 .GridMain2 .GMPickFooter button:last-child{display:none;}
+.GridMain1 .GridMain2 .GMPickSel{background:#56606B!important;}
+.GridMain1 .GridMain2 .GMPickRowW{background: white!important;}
+.GridMain1 .GridMain2 .GMPickWDN{font-size:13px;letter-spacing:-0.1px;color:#8996A3!important;}
+
+.GridMain1 .GridMain2 .GMPickCell{width:28px!important;height:28px!important;margin:4px 6px!important;}
+.GridMain1 .GridMain2 .GMPickOM{color:#BEC9D4!important;font-size:13px;line-height:19px;font-family: 'spoqa';}
+.GridMain1 .GridMain2 .GMPickNow{border-radius:50%;margin:0 auto;width:28px!important;height:28px!important;background:#F5F8FA!important;};
+.GridMain1 .GridMain2 .GMPickWD{width:28px!important;height:28px!important;}
+.GridMain1 .GridMain2 .GMPickSu{color:#2C3238!important;}
+.GridMain1 .GridMain2 .GMPickSa{color:#2C3238!important;}
+
+.GridMain1 .GridMain2 .GMPick2TableParent .GMPick2Table{width:286px!important;margin-left:11px!important;margin-right:11px!important;margin-bottom:24px!important;}
+.GridMain1 .GridMain2 .GMPick2BL{position:absolute;left:27px;top:91px;display:inline-block!important;width:16px!important;height:16px!important;background:url(../../images/icons/ic_left_16_l_800.png) no-repeat 50%!important;}
+.GridMain1 .GridMain2 .GMPick2BR{position:absolute;left:100px;top:91px;display:inline-block!important;width:16px!important;height:16px!important;background:url(../../images/icons/ic_right_16_l_800.png) no-repeat 50%!important;}
+.GridMain1 .GridMain2 .GMPick2Table{margin-top:27px!important;}
+.GridMain1 .GridMain2 .GMPick2CellY{font-size:13px;line-height:19px;font-family:'spoqa';width:23%!important;height:31px!important;margin-bottom:8px;}
+.GridMain1 .GridMain2 .GMPick2YHover,.GridMain1 .GridMain2 .GMPick2MHover{ background:#F5F8FA!important;border-radius:3px;color:#2C3238!important;}
+.GridMain1 .GridMain2 .GMPick2MSel,.GridMain1 .GridMain2 .GMPick2YSel,.GridMain1 .GridMain2 .GMPick2MSelHover,.GridMain1 .GridMain2 .GMPick2YSelHover{background:#56606B!important;border:none!important;border-radius:3px;color:white;}
+.GridMain1 .GridMain2 .GMPick2Sep{height:31px!important;background:#DAE3ED!important;}
+.GridMain1 .GridMain2 .GMPick2Footer{display:none;}

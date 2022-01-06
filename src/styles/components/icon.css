@@ -1,0 +1,33 @@
+.ic { display: inline-block; content: ''; width: 20px; height: 20px; vertical-align:middle; }
+.ic-search { background: url(/images/icons/ic_search_16_l_500.png) center center; width: 20px; height: 20px; }
+.ic-search.dark { background: url(/images/icons/ic_search_16_500_dark.png) center center; width: 16px; height: 16px; }
+.ic-minus { background: url(/images/icons/ic_subtract_16_l_700.png) center center; width: 16px; height: 16px; }
+.ic-plus { background: url(/images/icons/ic_add_16_l_700.png) center center; width: 16px; height: 16px; }
+.ic-add { background: url(/images/icons/ic_add_20_l_600.png) center center; width: 16px; height: 16px; }
+.ic-del { background: url(/images/icons/ic_del_20_l_600.png) center center; width: 16px; height: 16px; }
+.ic-edit { background: url(/images/icons/ic_edit_20_l_600.png) center center; width: 16px; height: 16px; }
+.ic-close { background: url(/images/icons/ic_close_24_l_600.png) center center; width:24px; height:24px; }
+.ic-garo { background: url(/images/icons/ic-garo.png) no-repeat center center; width:36px; height:29px; }
+.selected .ic-garo { background: url(/images/icons/ic-garo_selected.png) no-repeat center center; width:36px; height:29px; }
+.ic-garoSero { background: url(/images/icons/ic-garoSero.png) no-repeat center center; width:36px; height:29px; }
+.selected .ic-garoSero { background: url(/images/icons/ic-garoSero_selected.png) no-repeat center center; width:36px; height:29px; }
+.ic-card-sero { background: url(/images/icons/ic-card-sero.png) no-repeat center center; width:24px; height:26px; }
+.selected .ic-card-sero { background: url(/images/icons/ic-card-sero_selected.png) no-repeat center center; width:24px; height:26px; }
+.ic-card-garo { background: url(/images/icons/ic-card-garo.png) no-repeat center center; width:24px; height:26px; }
+.selected .ic-card-garo { background: url(/images/icons/ic-card-garo_selected.png) no-repeat center center; width:24px; height:26px; }
+.ic-card-business { background: url(/images/icons/ic-card-business.png) no-repeat center center; width:24px; height:26px; }
+.selected .ic-card-business { background: url(/images/icons/ic-card-business_selected.png) no-repeat center center; width:24px; height:26px; }
+.ic-file { background: url(/images/icons/ic-file.png) no-repeat center center; width:24px; height:24px; }
+.ic-print { background: url(/images/icons/ic-print.png) no-repeat center center; width:24px; height:24px; }
+.ic-unfold { background: url(/images/icons/ic-unfold.png) no-repeat center center; width:16px; height:16px; }
+.ic-fold { background: url(/images/icons/ic-fold.png) no-repeat center center; width:16px; height:16px; }
+.ic-collapse { background: url(/images/icons/ic-collapse.png) no-repeat center center; width:15px; height:15px; }
+.ic-collapse.on { transform: rotate(180deg); }
+.ic-arrow-down { background: url(/images/icons/ic-arrow-down.png) no-repeat center center; width:40px; height:20px; }
+.ic-arrow-up { background: url(/images/icons/ic-arrow-up.png) no-repeat center center; width:40px; height:20px; }
+.ic-arrow-right { background: url(/images/icons/ic-arrow-right.png) no-repeat center center; width:40px; height:20px; }
+
+.org-node-down::before { display:inline-block; content:''; background: url(/images/icons/ic-tree-down.png) no-repeat center center; width:18px; height:18px; }
+.org-node-up::before { display:inline-block; content:''; background: url(/images/icons/ic-tree-up.png) no-repeat center center; width:18px; height:18px; }
+.org-rotate::before { display:inline-block; content:''; background: url(/images/icons/ic_refresh_24_l_600.png) no-repeat center center; width:16px; height:16px; }
+.org-full-view::before { display:inline-block; content:''; background: url(/images/icons/ic_zoomin_24_l_600.png) no-repeat center center; width:16px; height:16px; }

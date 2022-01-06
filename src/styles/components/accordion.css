@@ -1,0 +1,22 @@
+.accordion{width: 100%;border: 1px solid #BEC9D4;border-radius: 5px;}
+.accordion .card{border: none;background:transparent;border-top:1px solid #BEC9D4;}
+.accordion .card:first-child{border-top:none;}
+.accordion .card::after{height:1px;width:100%;display:block;background:#BEC9D4;}
+.accordion .card-header{background:transparent;padding: 10px 16px;margin-bottom:0;}
+.accordion .card-header h2 button{color:#000;font-size:13px;line-height: 19px;letter-spacing: 0.05px;font-weight: 700;padding-left:0;}
+.accordion .card-header h2 button:focus {text-decoration: none;}
+.accordion .card-body{background: white;}
+
+.btn.btn-link.btn-block {
+    background-image: url(../../images/icons/ic_up_16_l_600.png);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+}
+
+.btn.btn-link.btn-block.collapsed {
+    background-image: url(../../images/icons/ic_down_16_l_600.png);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+}

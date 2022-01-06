@@ -1,0 +1,41 @@
+/* btn default */
+.btn{border-radius: 4px;display: inline-block;}
+
+/* btn outline */
+.btn-outline{padding: 6px;background: #FFFFFF;border: 1px solid #89919a;}
+.btn-outline:focus{box-shadow: none;}
+.btn-outline:hover{border-color: #DAE3ED;}
+.btn-outline:active{background: #F5F7FA;border-color: #89919a;}
+
+/* btn action */
+.btn-action{padding: 5px 12px;background: #FFFFFF;border: 1px solid #89919a;}
+.btn-action:focus{box-shadow: none;}
+.btn-action:hover{border-color: #DAE3ED;}
+.btn-action:active{background: #F5F7FA;border-color: #89919a;}
+
+/* btn primary */
+.btn-primary{background: #354a5f;border-color: #424952;color: white;padding: 5px 12px;}
+.btn-primary:hover{background: #6B7682;border-color: #6B7682;}
+.btn-primary:disabled{background: #2C3238;border-color: #2C3238;}
+.btn-primary:focus, .btn-primary.focus {box-shadow: none;}
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {background: #2C3238;border-color: #2C3238;}
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus{box-shadow: none;}
+
+/* btn search */
+.btn-search{background: #E0205C;color: white;}
+.btn-search:hover{background: #F55D8D;color: white;}
+.btn-search:active{background: #CB0F4A;}
+.btn-search:disabled{opacity: 0.4;}
+
+/* btn-text*/
+.btn-text{font-size: 11px;line-height: 18px;letter-spacing: -0.3px;display: flex;align-items: center;width: 56px;height: 28px;}
+button#btn-print-org-show.btn-text {width: 112px;}
+.btn-text+.btn-text{margin-left: 4px;}
+.btn-text span{padding: 4px 5px;font-size: 11px; line-height: 18px;letter-spacing:-0.3px;}
+.btn-text:hover{font-weight: 700;}
+.btn-text:active{background: #E9EFF5;font-weight: 700;}
+.btn-text:disabled{opacity: 0.3;}
+.btn:focus, .btn.focus {-webkit-box-shadow: none;box-shadow: none;}
+
+/* btn success */
+.btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus, .show > .btn-success.dropdown-toggle:focus { -webkit-box-shadow: none; box-shadow: none}

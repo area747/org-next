@@ -1,0 +1,15 @@
+.panel-primary>.panel-heading { background: white; border-bottom: 1px solid #DAE3ED; padding: 17px 30px 12px; height: 62px!important; }
+.panel-primary>.panel-heading h3 { font-size: 18px; line-height: 33px; letter-spacing: -0.4px; font-weight: 700; color: #000000; }
+.table-bordered { border: 1px solid #8996A3; margin: 30px!important; }
+.table-info, .table-info > th, .table-info > td { background-color: #E9EFF5; font-size: 13px; line-height: 18px; letter-spacing: -0.2px; font-weight: 700; }
+#summary-close span { color: #000; }
+
+.modal-dialog .modal-header { background:white; padding:17px 30px 12px; border-bottom:1px solid #DAE3ED; }
+.modal-dialog .modal-header .modal-title { font-size:18px; line-height:33px; font-weight:700; letter-spacing:-0.4px; color:#000; }
+.modal-dialog .modal-header span { color:#000; }
+.modal-dialog .modal-body { padding:30px; }
+.modal-dialog .modal-body label { font-size:16px; line-height:22px; letter-spacing:-0.2px; font-weight:700; color:#000; }
+.modal-dialog .modal-body select { font-size:12px; line-height:18px; letter-spacing:0.1px; color:#8996A3; }
+.modal-dialog .modal-body select.edit { color:#495057; }
+.modal-dialog .modal-footer { border-top:none; padding: 0 30px 24px; }
+.modal-dialog .modal-footer .btn { margin:0; margin-left:6px; padding:9.5px 12px; font-size:12px; line-height:17px; letter-spacing:0.2px; font-weight:700; }

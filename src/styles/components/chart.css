@@ -1,0 +1,5 @@
+
+ /* 범례 설정 */
+.legend-org { height: 85%; width: 56%; display: inline-block; margin-bottom: 0px; } 
+.legend-grid { height: 85%; width: 42%; margin-right: 1%; display: inline-block; margin-top: 30px; } 
+.legend-label { font-weight: 600; font-size: 1.3rem; color: #115e8b; position: absolute; } 

@@ -1,4 +1,4 @@
-import {OrgData, OrgObject} from 'orgObject';
+import {OrgData, OrgObject, Template} from 'orgObject';
 import {Dispatch} from 'redux';
 import api from '../repo/axios';
 
@@ -118,7 +118,21 @@ const orgData: OrgObject = {
         order: ['orgSortOrder', 'empSortOrder'],
         fields: [],
     },
-    template: require('../mockData/nodeTemplate.json'),
+    template: (() => {
+        let template: Template = require('../mockData/nodeTemplate.json');
+        let bind = require('../mockData/bind.json');
+        Object.keys(bind).forEach((item, idx, arr) => {
+            let str = JSON.stringify(template.nodes[item]?.units);
+            let strList = JSON.stringify(template.nodes[item + 'List']?.units);
+            Object.keys(bind[item]).forEach(bindItem => {
+                str = str.replace(bindItem, bind[item][bindItem]);
+                strList = strList.replace(bindItem, bind[item][bindItem]);
+            });
+            template.nodes[item].units = JSON.parse(str);
+            template.nodes[item + 'List'].units = JSON.parse(strList);
+        });
+        return template;
+    })(),
 };
 
 export default orgObject;
